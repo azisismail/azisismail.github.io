@@ -1,0 +1,232 @@
+
+jQuery(document).ready(function() { 
+    
+    alignLayer()
+    
+    $(window).resize(function(){ alignLayer();})
+    
+    var layer = $('img.layer');
+    var layerCount = layer.length;
+    var layerReady = 0;
+    
+    layer.load(function(){
+        layerReady++;
+        var progress = Math.round(layerReady*100/23);
+        $('.count').html(progress+"%");
+        if (layerReady==layerCount)
+        {
+            $('#preloader').hide();
+            $('#page1, #page2, #page3, #page4, #page5, #page6, #main-menu').css({'visibility':'visible'});
+            setTimeout(function(){$("body,html,document").scrollTop( $('body').height() ); }, 100)
+
+			$("a#inline").fancybox({
+				'width': '80%',
+				'autoScale': true,
+				'centerOnScroll': true,
+				'transitionIn': 'fade',
+				'transitionOut': 'fade',
+			});
+			
+            init();
+        }
+    })
+        
+    function init()
+    {
+        var jarallax = new Jarallax(new ControllerScroll(true));
+
+        // ================ page 1
+        jarallax.addAnimation('#page1 .awan', 
+                               [ {progress:'0%', 'top':'0px'},
+                                 {progress:'20%', 'top':'-320px'},
+                                 {progress:'30%', 'top':'-700px'},
+                                 {progress:'100%', 'top':'-700px'}
+                               ]);                             
+        jarallax.addAnimation('#page1 .text', 
+                               [ {progress:'0%', 'top':'40px'},
+                                 {progress:'18%', 'top':'-450px'},
+                                 {progress:'25%', 'top':'-700px'},
+                                 {progress:'100%', 'top':'-700px'},
+                               ]);
+        jarallax.addAnimation('#page1 .information', 
+                               [ {progress:'0%', 'top':'300px'},
+                                 {progress:'18%', 'top':'-250px'},
+                                 {progress:'25%', 'top':'-700px'},
+                                 {progress:'100%', 'top':'-700px'},
+                               ]);
+
+        // ================ page 2
+        jarallax.addAnimation('#page2 .scene', 
+                               [ {progress:'0%', 'top':'550px'},
+                                 {progress:'20%', 'top':'150px'},
+                                 {progress:'35%', 'top':'-100px'},
+                                 {progress:'40%', 'top':'-500px'},
+                                 {progress:'1000%', 'top':'-500px'},
+                               ]);                           
+        jarallax.addAnimation('#page2 .planet', 
+                               [ {progress:'0%', 'top':'455px'},
+                                 {progress:'20%', 'top':'180px'},
+                                 {progress:'30%', 'top':'50px'},
+                                 {progress:'40%', 'top':'-250px'},
+                                 {progress:'100%', 'top':'-250px'},
+                               ]);
+
+        // ================ page 3   
+        jarallax.addAnimation('#page3 .scene', 
+                               [ {progress:'0%', 'top':'1200px'},
+                                 {progress:'20%', 'top':'1200px'},
+                                 {progress:'40%', 'top':'110px'},
+                                 {progress:'60%', 'top':'-818px'},
+                                 {progress:'100%', 'top':'-818px'},
+                               ]);
+
+        jarallax.addAnimation('#page3 .rintik_hujan_1', 
+                               [ {progress:'0%', 'top':'1905px'},
+                                 {progress:'20%', 'top':'1905px'},
+                                 {progress:'40%', 'top':'512px'},
+                                 {progress:'60%', 'top':'-416px'},
+                                 {progress:'100%', 'top':'-416px'},
+                               ]);                                                      
+        jarallax.addAnimation('#page3 .rintik_hujan_3', 
+                               [ {progress:'0%', 'top':'1805px'},
+                                 {progress:'20%', 'top':'1905px'},
+                                 {progress:'40%', 'top':'438px'},
+                                 {progress:'60%', 'top':'-500px'},
+                                 {progress:'100%', 'top':'-500px'},
+                               ]);                           
+        jarallax.addAnimation('#page3 .text', 
+                               [ {progress:'0%', 'top':'1500px'},
+                                 {progress:'15%', 'top':'1000px'},  
+                                 {progress:'40%', 'top':'50px'},
+                                 {progress:'50%', 'top':'-250px'},
+                                 {progress:'100%', 'top':'-250px'},
+                               ]);                           
+        jarallax.addAnimation('#page3 .awan_besar', 
+                               [ {progress:'0%', 'top':'1024px'},
+                                 {progress:'40%', 'top':'-140px'},
+                                 {progress:'60%', 'top':'-1355px'},
+                                 {progress:'80%', 'top':'-1600px'},
+                                 {progress:'100%', 'top':'-1600px'},
+                               ]);                           
+        jarallax.addAnimation('#page3 .awan_kecil', 
+                               [ {progress:'0%', 'top':'2280px'},
+                                 {progress:'40%', 'top':'300px'},
+                                 {progress:'60%', 'top':'-20px'},
+                                 {progress:'80%', 'top':'-430px'},
+                                 {progress:'100%', 'top':'-430px'},
+                               ]);
+
+        // page 4
+        jarallax.addAnimation('#page4 .text', 
+                               [ {progress:'0%', 'top':'-220px'},
+                                 {progress:'50%', 'top':'-220px'},  
+                                 {progress:'60%', 'top':'15px'},
+                                 {progress:'62%', 'top':'15px'},
+                                 {progress:'67%', 'top':'-220px'},
+                                 {progress:'100%', 'top':'-220px'},
+                               ]);    
+        jarallax.addAnimation('#page4 .keping_melodi', 
+                               [ {progress:'0%', 'top':'2370px'},
+                                 {progress:'60%', 'top':'80px'},
+                                 {progress:'70%', 'top':'-320px'},
+                                 {progress:'100%', 'top':'-320px'},
+                               ]);    
+        jarallax.addAnimation('#page4 .pulau', 
+                               [ {progress:'0%', 'top':'-170px'},
+                                 {progress:'50%', 'top':'-170px'},  
+                                 {progress:'60%', 'top':'190px'},
+                                 {progress:'70%', 'top':'-220px'},
+                                 {progress:'100%', 'top':'-220px'},
+                               ]);    
+        jarallax.addAnimation('#page4 .scene', 
+                               [ {progress:'0%', 'top':'1470px'},
+                                 {progress:'60%', 'top':'85px'},
+                                 {progress:'80%', 'top':'-605px'},
+                                 {progress:'100%', 'top':'-1555px'},
+                               ]);
+
+        // page 5    
+        jarallax.addAnimation('#page5 .scroll', 
+                               [ {progress:'0%', 'top':'-600px'},
+                                 {progress:'65%', 'top':'-600px'},
+                                 {progress:'75%', 'top':'300px'},
+                                 {progress:'100%', 'top':'-890px'},
+                               ]);    
+        jarallax.addAnimation('#page5 .scene', 
+                               [ {progress:'0%', 'top':'3325px'},
+                                 {progress:'65%', 'top':'1100px'},
+                                 {progress:'80%', 'top':'140px'},
+                                 {progress:'100%', 'top':'-845px'},
+                               ]);    
+        jarallax.addAnimation('#page5 .text', 
+                               [ {progress:'0%', 'top':'4125px'},
+                                 {progress:'65%', 'top':'1300px'},
+                                 {progress:'75%', 'top':'350px'},
+                                 {progress:'100%', 'top':'-930px'},
+                               ]);
+
+        // page 6
+        jarallax.addAnimation('#page6 .percikan', 
+                               [ {progress:'0%', 'top':'4125px'},
+                                 {progress:'100%', 'top':'35px'},
+                               ]);    
+        jarallax.addAnimation('#page6 .terumbu', 
+                               [ {progress:'80%', 'top':'1500px'},
+                                 {progress:'100%', 'top':'380px'},
+                               ]);
+        jarallax.addAnimation('#page6 .hiu', 
+                               [ {progress:'0%', 'top':'4260px'},
+    //                             {progress:'80%', 'top':'250px'},
+                                 {progress:'95%', 'top':'135px'},
+                                 {progress:'100%', 'top':'135px'},
+                               ]);
+        jarallax.addAnimation('#page6 .paus', 
+                               [ {progress:'0%', 'top':'4300px'},
+    //                             {progress:'80%', 'top':'240px'}, 
+                                 {progress:'95%', 'top':'120px'},
+                                 {progress:'100%', 'top':'120px'},
+                               ]);
+        jarallax.addAnimation('#page6 .text', 
+                               [ {progress:'0%', 'top':'-300px'},
+                                 {progress:'90%', 'top':'-300px'},  
+                                 {progress:'100%', 'top':'80px'},
+                               ]);
+        jarallax.addAnimation('#page6 .scene', 
+                               [ {progress:'0%', 'top':'3000px'},
+                                 {progress:'100%', 'top':'130px'},
+                               ]);
+                               
+        jarallax.addAnimation('#main-menu', 
+                               [ {progress:'0%', 'top':'60px'},
+                                 {progress:'100%', 'top':'400px'},
+                               ]);
+							   
+		
+		setTimeout(function(){  $("a#inline").trigger('click'); }, 3000);		
+                           
+    }
+    
+    function alignLayer()
+    {
+        var objImg = $('.layer');
+        objImg.each(function() {
+            var bgObj, left, newleft;
+            bgObj = $(this);
+            left = bgObj.position().left;
+            newleft = -(1920 - $(document).width())/2;
+            bgObj.css({'margin-left' : newleft+'px'});
+        });
+    }
+    
+}); // end of document ready
+
+function pad(number, length) {
+   
+    var str = '' + number;
+    while (str.length < length) {
+        str = '0' + str;
+    }
+   
+    return str;
+
+}
